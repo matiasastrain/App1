@@ -6,3 +6,8 @@ Integrantes:
 - Khushang Methwani --- kmethwani@alumnos.uai.cl
 - Rodrigo Sánchez --- rodsanchez@alumnos.uai.cl
 - Diego Calvo --- dicalvo@alumnos.uai.cl
+
+Por si no se genera el ejecutable App1 gracias al makefile (solamente en caso de no compilar usar)
+gcc main.c metrican.c utilidades.c -Wall -Wextra -g -o app1
+o
+gcc main.c metrican.c utilidades.c  -o app1
