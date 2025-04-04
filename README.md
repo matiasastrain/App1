@@ -91,7 +91,7 @@ TICS200@localhost:~$ Pizza menos vendida: The classic Deluxe Pizza
 
 1. **Lenguaje**: C (sin frameworks externos no estándar).  
 2. **Grupos**: 2 o 3 personas.  (para la sección del día miércoles de Santiago, los grupos son de 4 personas y se entregan la inscripción de grupos por correo a la profesora)
-3. **Fecha de entrega**: Sábado 29 de Marzo a las 22:00.  (Para la Sec. 2 de Santiago la entrega queda para el Sábado 5 de Abril a las 22:00)
+3. **Fecha de entrega**: Sábado 29 de Marzo a las 22:00.  
    - Por cada día de atraso se descuenta 1 punto, comenzando a las 22:01.
    - Compilador a usar: `gcc` v5.1 o superior.  
 4. La entrega se realiza por la plataforma Webcursos especificando el nombre del repo.  

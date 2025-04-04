@@ -35,19 +35,25 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Lista de métricas disponibles (cadenas cortas)
+    typedef struct {
+        char *nombre;
+        char *descripcion;
+        char *(*funcion)(int *, Pedido *);
+    } Metrica;
+    
     Metrica metricas_disponibles[] = {
-        {"pms",  pizza_mas_vendida},
-        {"pls",  pizza_menos_vendida},
-        {"dms",  fecha_mas_ventas_dinero},
-        {"dls",  fecha_menos_ventas_dinero},
-        {"dmsp", fecha_mas_ventas_pizzas},
-        {"dlsp", fecha_menos_ventas_pizzas},
-        {"apo",  promedio_pizzas_orden},
-        {"apd",  promedio_pizzas_dia},
-        {"ims",  ingrediente_mas_vendido},
-        {"hp",   cantidad_pizzas_categoria}
+        {"pms",  "Pizza mas vendida", pizza_mas_vendida},
+        {"pls",  "Pizza menos vendida", pizza_menos_vendida},
+        {"dms",  "Fecha mas ventas dinero", fecha_mas_ventas_dinero},
+        {"dls",  "Fecha menos ventas dinero", fecha_menos_ventas_dinero},
+        {"dmsp", "Fecha mas ventas pizzas", fecha_mas_ventas_pizzas},
+        {"dlsp", "Fecha menos ventas pizzas", fecha_menos_ventas_pizzas},
+        {"apo",  "Promedio pizzas orden", promedio_pizzas_orden},
+        {"apd",  "Promedio pizzas dia", promedio_pizzas_dia},
+        {"ims",  "Ingrediente mas vendido", ingrediente_mas_vendido},
+        {"hp",   "Cantidad pizzas categoria", cantidad_pizzas_categoria}
     };
+    
     int total_metricas = sizeof(metricas_disponibles) / sizeof(Metrica);
 
     // Procesar cada métrica indicada por línea de comandos
@@ -57,9 +63,10 @@ int main(int argc, char *argv[]) {
         for (int j = 0; j < total_metricas; j++) {
             if (strcmp(argv[i], metricas_disponibles[j].nombre) == 0) {
                 char *resultado = metricas_disponibles[j].funcion(&cantidad_pedidos, pedidos);
-                printf("%s: %s\n", argv[i], resultado);
+                printf("%s: %s\n", metricas_disponibles[j].descripcion, resultado);
 
-                // Ojo: solo liberar si la función aloca memoria con malloc
+                // IMPORTANTE: Usar free(resultado) únicamente si la función asignó memoria dinámica (malloc/calloc/realloc)
+
                 free(resultado);
                 encontrada = true;
                 break;
