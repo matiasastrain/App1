@@ -7,9 +7,10 @@ Integrantes:
 - Rodrigo Sánchez --- rodsanchez@alumnos.uai.cl
 - Diego Calvo --- dicalvo@alumnos.uai.cl
 
+Para revisar los parámetros en específico
+./App1 ventas.csv  (sigla del parámetro que se quiera revisar, pueden ser más de un parámetro)
+
 Por si no se genera el ejecutable App1 gracias al makefile (solamente en caso de no compilar usar)
 gcc main.c metrican.c utilidades.c -Wall -Wextra -g -o app1
 o
 gcc main.c metrican.c utilidades.c  -o app1
-
-./App1 ventas.csv  (sigla del parámetro que se quiera revisar, pueden ser más de un parámetro)
